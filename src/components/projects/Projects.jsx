@@ -73,17 +73,26 @@ export default function Projects() {
     ];
   return (
     <section id='projects' className='text-gray-400 bg-blue-950 body-font'>
-        <div className='container px-3 py-11 mx-auto'>
-            <div data-aos='fade-up' data-aos-delay='300' className='flex flex-col'>
-                <div className='flex flex-wrap sm:flex-row flex-col py-6 mb-12'>
-                    <h1 className='sm:w-2/5 text-white font-medium title-font text-3xl mb-2 sm:mb-0'>My projects</h1>
-                    <p className='sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0'>
-                    Explore a collection of my recent projects showcasing modern web development practices, responsive design, and innovative solutions. Each project demonstrates my expertise in frontend technologies and my passion for creating user-friendly digital experiences.
-                    </p>
-
-                </div>
+        <div className='container px-5 py-24 mx-auto'>
+            <div className="flex flex-col text-center w-full mb-6">
+                <h1
+                    data-aos='fade-up'
+                    data-aos-delay='300'
+                    className='sm:text-2xl text-2xl font-bold title-font mb-4 text-white'
+                >
+                    My projects
+                </h1>
             </div>
-            <div data-aos='fade-up' data-aos-delay='400' className='flex flex-wrap sm:m-4 -mx-4 -mb-10 -mt-4'>
+            <div
+                data-aos='fade-up'
+                data-aos-delay='400'
+                className='lg:w-1/2 mx-auto mb-16'
+            >
+                <p className='text-base leading-relaxed text-gray-300 text-center'>
+                    Explore a collection of my recent projects showcasing modern web development practices, responsive design, and innovative solutions. Each project demonstrates my expertise in frontend technologies and my passion for creating user-friendly digital experiences.
+                </p>
+            </div>
+            <div data-aos='fade-up' data-aos-delay='500' className='flex flex-wrap sm:m-4 -mx-4 -mb-10 -mt-4'>
                 {
                     projects.map((project, index)=>(
                         <ProjectCard key={index} {...project} />
