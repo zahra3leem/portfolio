@@ -44,30 +44,26 @@ export default function Hero() {
         id="home"
         className="flex flex-col md:flex-row items-center justify-center w-full px-4 md:px-52 pb-4 md:pd-24 md:pt-32 pt-24 md:pb-24 mt-24 md:mt-0 z-10"
       >
-        <div data-aos="fade-up" className="flex-1 md:text-left mt-10 md:mt-0">
-        <span className="hello text-2xl font-thin">Hello, </span>
-        <span className="intoText">
-          I`m </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl  text-white mb-4">
+        <div className="flex-1 md:text-left mt-10 md:mt-0">
+          <span className="hello text-2xl font-thin">Hello, </span>
+          <span className="intoText">I`m </span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl text-white mb-4">
             Zahra Abdelaleem
           </h1>
           <p
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 whitespace-nowrap"
           >
             {displayedText}
           </p>
-     
-          <button
-                data-aos="fade-up"
-                data-aos-delay="500"
-                type="button"
-                onClick={handleDownloadCV}
-                className="text-white bg-blue-950 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-700 font-semibold rounded-full text-xs sm:text-sm px-4 py-2 text-center"
-              >
-                Download CV
-              </button>
+          <div data-aos="fade-up" data-aos-delay="500">
+            <button
+              type="button"
+              onClick={handleDownloadCV}
+              className="text-white bg-blue-950 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-700 font-semibold rounded-full text-xs sm:text-sm px-4 py-2 text-center"
+            >
+              Download CV
+            </button>
+          </div>
         </div>
         <div
           data-aos="fade-up"

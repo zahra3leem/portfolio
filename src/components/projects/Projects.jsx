@@ -1,38 +1,59 @@
 import React from 'react'
 import sammlyLogo from '../../assets/sammlyLogo.png';
 
-const ProjectCard = ({image, title, githubUrl}) =>(
-    <div className='p-4 md:w-1/3 mb-6'>
-        <div className='rounded-lg h-52 overflow-hidden bg-white flex items-center justify-center p-4'>
-            {image ? (
-                <img src={image} alt="content" className='object-contain object-center h-3/4 w-3/4' />
-            ) : (
-                <h3 className='text-2xl font-bold text-gray-800 text-center'>{title}</h3>
+const ProjectCard = ({image, title, githubUrl, liveUrl}) =>{
+    const CardContent = (
+        <>
+            <div className='rounded-lg h-52 overflow-hidden bg-white flex items-center justify-center p-4'>
+                {image ? (
+                    <img src={image} alt="content" className='object-contain object-center h-3/4 w-3/4' />
+                ) : (
+                    <h3 className='text-2xl font-bold text-gray-800 text-center px-4'>{title}</h3>
+                )}
+            </div>
+            {image && <h2 className='text-xl font-medium title-font text-white mt-5'>{title}</h2>}
+            {githubUrl && !liveUrl && (
+                <div className='text-blue-300 inline-flex items-center mt-3'>
+                    View on GitHub
+                    <svg fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' className='w-4 h-4 ml-2' viewBox='0 0 24 24'>
+                        <path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path>
+                    </svg>
+                </div>
             )}
+        </>
+    );
+
+    const clickableUrl = liveUrl || githubUrl;
+    
+    if (clickableUrl) {
+        return (
+            <div className='p-4 md:w-1/3 mb-6'>
+                <a 
+                    href={clickableUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className='block cursor-pointer hover:opacity-90 transition-opacity'
+                >
+                    {CardContent}
+                </a>
+            </div>
+        );
+    }
+
+    return (
+        <div className='p-4 md:w-1/3 mb-6'>
+            {CardContent}
         </div>
-        {image && <h2 className='text-xl font-medium title-font text-white mt-5'>{title}</h2>}
-        {githubUrl && (
-            <a 
-                href={githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className='text-blue-300 hover:text-blue-100 inline-flex items-center mt-3'
-            >
-                View on GitHub
-                <svg fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' className='w-4 h-4 ml-2' viewBox='0 0 24 24'>
-                    <path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path>
-                </svg>
-            </a>
-        )}
-    </div>
-);
+    );
+};
 
 export default function Projects() {
     const projects = [
         {
             title:'Sammly',
             image: sammlyLogo,
-            githubUrl: null
+            githubUrl: null,
+            liveUrl: 'https://react-designer-e-commerce-dopv.vercel.app/'
         },
         {
             title:'Examination System',
